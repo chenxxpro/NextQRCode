@@ -33,8 +33,8 @@ public final class CameraPreview {
         final int originWidth = src.getWidth();
         final int originHeight = src.getHeight();
         final int targetWH = originWidth > originHeight ? originHeight : originWidth;
-        final int offsetX = originWidth > originHeight ? (originWidth - originHeight): 0;
-        final int offsetY = originWidth > originHeight ? 0 : (originHeight - originWidth);
+        final int offsetX = originWidth > originHeight ? (originWidth - originHeight)/2 : 0;
+        final int offsetY = originWidth > originHeight ? 0 : (originHeight - originWidth)/2;
         return Bitmap.createBitmap(src, offsetX, offsetY, targetWH, targetWH, matrix, true);
     }
 }
