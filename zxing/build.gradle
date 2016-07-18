@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         minSdkVersion 13
-        targetSdkVersion 21
+        targetSdkVersion 23
     }
 }
 
@@ -15,4 +15,4 @@ dependencies {
     compile 'com.google.zxing:android-core:3.2.1'
 }
 
-apply from: 'https://raw.githubusercontent.com/yoojia/Gradles/master/android.gradle'
+//apply from: 'https://raw.githubusercontent.com/yoojia/Gradles/master/android.gradle'
