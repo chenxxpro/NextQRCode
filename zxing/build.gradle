@@ -15,4 +15,11 @@ dependencies {
     compile 'com.google.zxing:android-core:3.2.1'
 }
 
-//apply from: 'https://raw.githubusercontent.com/yoojia/Gradles/master/android.gradle'
+ext{
+    projVersion = '2.a.0'
+    projArtifactId = 'next-qrcode'
+    projName = 'NextQRCode'
+    projDesc = 'NextQRCode: QRCode supports library for Android'
+    projURL = "https://github.com/yoojia/NextQRCode"
+    projVCS = "https://github.com/yoojia/NextQRCode.git"
+}

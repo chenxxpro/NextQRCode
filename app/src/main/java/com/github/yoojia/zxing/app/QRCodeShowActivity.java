@@ -1,8 +1,8 @@
 package com.github.yoojia.zxing.app;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Display;
@@ -10,7 +10,13 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.github.yoojia.zxing.R;
-import com.github.yoojia.zxing.qrcode.Encoder;
+import com.github.yoojia.zxing2.qrcode.QRCodeEncoder;
+
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 /**
  * @author :   Yoojia.Chen (yoojia.chen@gmail.com)
@@ -20,8 +26,6 @@ import com.github.yoojia.zxing.qrcode.Encoder;
 public class QRCodeShowActivity extends ActionBarActivity {
 
     private ImageView mQRCodeImage;
-    private Encoder mEncoder;
-    private DecodeTask mDecodeTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,37 +39,31 @@ public class QRCodeShowActivity extends ActionBarActivity {
         final Display display = manager.getDefaultDisplay();
         Point displaySize = new Point();
         display.getSize(displaySize);
-        final int width = displaySize.x;
-        final int height = displaySize.y;
-        final int dimension = width < height ? width : height;
+        final int size = Math.min(displaySize.x, displaySize.y);
 
-        mEncoder = new Encoder.Builder()
-                .setBackgroundColor(0xFFFFFF)
-                .setCodeColor(0xFF000000)
-                .setOutputBitmapPadding(0)
-                .setOutputBitmapWidth(dimension)
-                .setOutputBitmapHeight(dimension)
-                .build();
-
-        mDecodeTask = new DecodeTask();
+        Observable.just("https://github.com/yoojia/NextQRCode")
+                .map(new Func1<String, Bitmap>() {
+                    @Override
+                    public Bitmap call(String content) {
+                        final Bitmap centerImage = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+                        return new QRCodeEncoder.Builder()
+                                .width(size)
+                                .height(size)
+                                .paddingPx(0)
+                                .marginPt(3)
+                                .centerImage(centerImage)
+                                .build()
+                                .encode(content);
+                    }
+                })
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<Bitmap>() {
+                    @Override
+                    public void call(Bitmap bitmap) {
+                        mQRCodeImage.setImageBitmap(bitmap);
+                    }
+                });
     }
 
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        mDecodeTask.execute("https://github.com/yoojia/ZXingMini");
-    }
-
-    private class DecodeTask extends AsyncTask<String, Void, Bitmap>{
-
-        @Override
-        protected Bitmap doInBackground(String... params) {
-            return mEncoder.encode(params[0]);
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            mQRCodeImage.setImageBitmap(bitmap);
-        }
-    }
 }
