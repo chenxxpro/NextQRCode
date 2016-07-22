@@ -3,24 +3,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-    <SurfaceView
+    <com.github.yoojia.zxing2.camera.LiveCameraView
         android:id="@+id/capture_preview_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center" />
-
-    <com.github.yoojia.zxing.qrcode.FinderView
-        android:id="@+id/capture_viewfinder_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="@android:color/transparent" />
-
-    <ImageView
-        android:id="@+id/decode_preview"
-        android:layout_margin="5dp"
-        android:alpha="0.7"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
 
 </RelativeLayout>

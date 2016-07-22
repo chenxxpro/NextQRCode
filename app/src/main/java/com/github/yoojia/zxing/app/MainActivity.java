@@ -36,15 +36,6 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        Button camera = (Button) findViewById(R.id.camera);
-        camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CameraActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
 }

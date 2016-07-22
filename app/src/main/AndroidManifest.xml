@@ -3,7 +3,6 @@
     package="com.github.yoojia.zxing" >
 
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,9 +20,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".app.QRCodeShowActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".app.QRCodeScanActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".app.CameraActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".app.QRCodeShowActivity"/>
+        <activity android:name=".app.QRCodeScanActivity"/>
     </application>
 
 </manifest>
