@@ -59,6 +59,9 @@ public class LiveCameraView extends SurfaceView implements SurfaceHolder.Callbac
 
     public void setCamera(Camera camera) {
         mCamera = camera;
+        final Camera.Parameters params = mCamera.getParameters();
+        params.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
+        params.setSceneMode(Camera.Parameters.SCENE_MODE_BARCODE);
     }
 
     private void startPreviewDisplay(SurfaceHolder holder){

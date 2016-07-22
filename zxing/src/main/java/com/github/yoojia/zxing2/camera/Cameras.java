@@ -1,11 +1,9 @@
 package com.github.yoojia.zxing2.camera;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.hardware.Camera;
-import android.view.Surface;
 
 /**
  * @author Yoojia Chen (yoojiachen@gmail.com)
@@ -44,6 +42,11 @@ public class Cameras {
         return camera.getParameters().getSupportedFocusModes().contains(Camera.Parameters.FOCUS_MODE_AUTO);
     }
 
+    /**
+     * 设置相机预览方式为跟随屏幕方向
+     * @param context Context
+     * @param camera Camera
+     */
     public static void followScreenOrientation(Context context, Camera camera){
         final int orientation = context.getResources().getConfiguration().orientation;
         if(orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -51,5 +54,9 @@ public class Cameras {
         }else if(orientation == Configuration.ORIENTATION_PORTRAIT) {
             camera.setDisplayOrientation(90);
         }
+    }
+
+    public static void tackJPEGPicture(Camera camera, BitmapCallback callback) {
+        camera.takePicture(null, null, callback);
     }
 }
