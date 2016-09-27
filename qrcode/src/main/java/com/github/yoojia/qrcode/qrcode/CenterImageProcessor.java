@@ -1,4 +1,4 @@
-package com.github.yoojia.zxing2.qrcode;
+package com.github.yoojia.qrcode.qrcode;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

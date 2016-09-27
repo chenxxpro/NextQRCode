@@ -1,20 +1,20 @@
 package com.github.yoojia.zxing.app;
 
-import android.app.Activity;
 import android.hardware.Camera;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.github.yoojia.qrcode.camera.Cameras;
+import com.github.yoojia.qrcode.camera.LiveCameraView;
 import com.github.yoojia.zxing.R;
-import com.github.yoojia.zxing2.camera.Cameras;
-import com.github.yoojia.zxing2.camera.LiveCameraView;
 
 /**
  * @author :   Yoojia.Chen (yoojia.chen@gmail.com)
  * 扫描二维码
  */
-public class QRCodeScanActivity extends Activity{
+public class QRCodeScanActivity extends AppCompatActivity {
 
     private LiveCameraView mCameraView;
 

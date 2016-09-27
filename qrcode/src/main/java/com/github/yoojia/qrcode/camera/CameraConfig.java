@@ -1,4 +1,4 @@
-package com.github.yoojia.zxing2.camera;
+package com.github.yoojia.qrcode.camera;
 
 /**
  * @author Yoojia Chen (yoojiachen@gmail.com)

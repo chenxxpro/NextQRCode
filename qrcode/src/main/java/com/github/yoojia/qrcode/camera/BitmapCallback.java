@@ -1,4 +1,4 @@
-package com.github.yoojia.zxing2.camera;
+package com.github.yoojia.qrcode.camera;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

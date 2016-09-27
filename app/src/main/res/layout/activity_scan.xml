@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-    <com.github.yoojia.zxing2.camera.LiveCameraView
+    <com.github.yoojia.qrcode.camera.LiveCameraView
         android:id="@+id/capture_preview_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

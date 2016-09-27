@@ -3,6 +3,7 @@ package com.github.yoojia.zxing.app;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -10,16 +11,16 @@ import com.github.yoojia.zxing.R;
 
 /**
  * @author :   Yoojia.Chen (yoojia.chen@gmail.com)
- * @date :   2015-03-03
  */
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button show = (Button) findViewById(R.id.qrcode_show);
-        show.setOnClickListener(new View.OnClickListener() {
+
+        // Show QRCode
+        findViewById(R.id.qrcode_show).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, QRCodeShowActivity.class);
@@ -27,8 +28,8 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        Button scan = (Button) findViewById(R.id.qrcode_scan);
-        scan.setOnClickListener(new View.OnClickListener() {
+        // Generate QRCode
+        findViewById(R.id.qrcode_scan).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, QRCodeScanActivity.class);

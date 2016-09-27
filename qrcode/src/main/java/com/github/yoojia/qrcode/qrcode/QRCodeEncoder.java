@@ -1,4 +1,4 @@
-package com.github.yoojia.zxing2.qrcode;
+package com.github.yoojia.qrcode.qrcode;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -22,8 +22,8 @@ import java.util.Map;
  */
 public class QRCodeEncoder {
 
-    public static final int DEF_BACKGROUND_COLOR = 0xFFFFFFFF;
-    public static final int DEF_POINT_COLOR = 0xFF000000;
+    public static final int DEF_BACKGROUND_COLOR = 0xFF_FF_FF_FF;
+    public static final int DEF_POINT_COLOR = 0xFF_00_00_00;
 
     public static final String TAG = "QRCodeEncoder";
 
