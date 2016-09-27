@@ -9,4 +9,14 @@
         android:layout_height="match_parent"
         android:layout_gravity="center" />
 
+    <ImageView
+        android:id="@+id/capture_image"
+        android:layout_width="120dp"
+        android:layout_height="80dp"/>
+
+    <!--
+        <com.github.yoojia.qrcode.camera.LiveFocusView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />-->
 </RelativeLayout>
