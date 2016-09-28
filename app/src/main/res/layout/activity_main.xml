@@ -10,12 +10,6 @@
                 tools:context="com.github.yoojia.zxing.app.MainActivity">
 
     <Button
-        android:id="@+id/camera"
-        android:text="相机"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <Button
         android:id="@+id/qrcode_show"
         android:layout_marginTop="10dp"
         android:text="生成二维码"
