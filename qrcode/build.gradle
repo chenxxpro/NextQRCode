@@ -16,7 +16,7 @@ dependencies {
 }
 
 ext{
-    projVersion = '2.a.0'
+    projVersion = '2.0-a1'
     projArtifactId = 'next-qrcode'
     projName = 'NextQRCode'
     projDesc = 'NextQRCode: QRCode supports library for Android'

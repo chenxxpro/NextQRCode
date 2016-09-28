@@ -85,6 +85,9 @@ public class LiveCameraView extends CameraPreviewView{
         mFocusLooper.stop();
     }
 
+    /**
+     * @return 返回当前设备是否支持自动对焦拍摄功能
+     */
     public boolean isAutoCaptureSupported(){
         return Cameras.isAutoFocusSupported(mCamera);
     }

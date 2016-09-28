@@ -60,6 +60,7 @@ public class CameraPreviewView extends SurfaceView implements SurfaceHolder.Call
 
     public void setCamera(Camera camera) {
         mCamera = camera;
+        checkCamera();
         final Camera.Parameters params = mCamera.getParameters();
         params.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
         params.setSceneMode(Camera.Parameters.SCENE_MODE_BARCODE);
@@ -107,9 +108,15 @@ public class CameraPreviewView extends SurfaceView implements SurfaceHolder.Call
     }
 
     public interface PreviewReadyCallback {
-
+        /**
+         * 预览功能已准备完成
+         * @param camera 相机对象
+         */
         void onStarted(Camera camera);
 
+        /**
+         * 预览功能已停止
+         */
         void onStopped();
     }
 }

@@ -31,7 +31,6 @@ public class QRCodeScanActivity extends AppCompatActivity {
     public static final String TAG = QRCodeScanActivity.class.getSimpleName();
 
     private LiveCameraView mLiveCameraView;
-
     private ImageView mCaptureImage;
     private TextView mContentView;
 
@@ -70,7 +69,7 @@ public class QRCodeScanActivity extends AppCompatActivity {
             @Override
             public void onStarted(Camera camera) {
                 Log.i(TAG, "-> Camera started, start to auto capture");
-                mLiveCameraView.startAutoCapture(2500, mCaptureCallback);
+                mLiveCameraView.startAutoCapture(1500, mCaptureCallback);
             }
 
             @Override
