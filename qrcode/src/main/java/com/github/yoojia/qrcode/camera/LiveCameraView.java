@@ -56,7 +56,7 @@ public class LiveCameraView extends CameraPreviewView{
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        mCamera = Cameras.open(0);
+        mCamera = Cameras.openBackDefault();
         setCamera(mCamera);
         super.surfaceCreated(holder);
     }

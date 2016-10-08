@@ -19,6 +19,24 @@ import java.io.ByteArrayOutputStream;
 public class Cameras {
 
     /**
+     * 开启默认后置摄像头
+     * @return Camera
+     */
+    public static Camera openBackDefault(){
+        final int numberOfCameras = Camera.getNumberOfCameras();
+        int defaultCameraId = 0;
+        for (int i = 0; i < numberOfCameras; i++) {
+            final Camera.CameraInfo info = new Camera.CameraInfo();
+            Camera.getCameraInfo(i, info);
+            if (info.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
+                defaultCameraId = i;
+                break;
+            }
+        }
+        return open(defaultCameraId);
+    }
+
+    /**
      * 打开相机设备
      * @param cameraId 相机ID
      * @return Camera
