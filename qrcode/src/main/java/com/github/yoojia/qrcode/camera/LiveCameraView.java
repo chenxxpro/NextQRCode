@@ -5,6 +5,7 @@ import android.hardware.Camera;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
+import android.widget.Toast;
 
 /**
  * @author Yoojia Chen (yoojiachen@gmail.com)
@@ -39,7 +40,7 @@ public class LiveCameraView extends CameraPreviewView{
 
     private final DelayedFocusLooper mFocusLooper = new DelayedFocusLooper() {
 
-        private final Camera.AutoFocusCallback mNop = new Camera.AutoFocusCallback() {
+        private final Camera.AutoFocusCallback mHandler = new Camera.AutoFocusCallback() {
             @Override public void onAutoFocus(boolean success, Camera camera) {
                 if (success){
                     camera.setOneShotPreviewCallback(mPreviewCallback);
@@ -50,14 +51,16 @@ public class LiveCameraView extends CameraPreviewView{
         };
 
         @Override public void callAutoFocus() {
-            mCamera.autoFocus(mNop);
+            mCamera.autoFocus(mHandler);
         }
     };
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         mCamera = Cameras.openBackDefault();
-        setCamera(mCamera);
+        if (mCamera != null){
+            setCamera(mCamera);
+        }
         super.surfaceCreated(holder);
     }
 
@@ -65,7 +68,9 @@ public class LiveCameraView extends CameraPreviewView{
     public void surfaceDestroyed(SurfaceHolder holder) {
         super.surfaceDestroyed(holder);
         mFocusLooper.stop();
-        mCamera.release();
+        if (mCamera != null){
+            mCamera.release();
+        }
     }
 
     /**
@@ -75,7 +80,11 @@ public class LiveCameraView extends CameraPreviewView{
      */
     public void startAutoCapture(int delay, CaptureCallback captureCallback) {
         mCaptureCallback = captureCallback;
-        mFocusLooper.start(delay);
+        if (mCamera != null){
+            mFocusLooper.start(delay);
+        }else{
+            Toast.makeText(getContext(), "OPEN CAMERA FAIL", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
