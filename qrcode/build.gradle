@@ -33,7 +33,7 @@ publish {
     userOrg = 'yoojia'
     groupId = 'com.github.yoojia'
     artifactId = 'next-qrcode'
-    publishVersion = '2.0-1'
+    publishVersion = '2.0-2'
     desc = 'NextQRCode: QRCode supports library for Android'
     website = 'https://github.com/yoojia/NextQRCode'
 }
